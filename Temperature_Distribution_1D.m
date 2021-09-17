@@ -34,4 +34,4 @@ view(2);
 xlabel('Comprimento da barra (m)');
 ylabel('Tempo (s)');
 zlabel('Temperatura (ºC)');
-% rotate(s, [0, 0, 1], 180);
+axis ij;

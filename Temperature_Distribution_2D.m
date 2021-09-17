@@ -42,7 +42,7 @@ end
 % Plot inital chart:
 figure;
 s = surf(x_array, y_array, T(:,:,1));
-% s.EdgeColor = 'none';
+s.EdgeColor = 'none';
 s.FaceColor = 'interp';
 view(2);
 xlabel('Comprimento do eixo-x (m)');
@@ -53,7 +53,7 @@ axis ij;
 % Plot final chart:
 figure;
 s = surf(x_array, y_array, T(:,:,t_nodes-1));
-% s.EdgeColor = 'none';
+s.EdgeColor = 'none';
 s.FaceColor = 'interp';
 view(2);
 xlabel('Comprimento da barra (m)');
