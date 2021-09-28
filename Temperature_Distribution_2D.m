@@ -24,15 +24,16 @@ T(1,:,:) = 100;
 T(1,1,:) = 0;
 T(1, y_nodes, :) = 0;
 % Iteration to calculate the temperature distribution:
-for t = 2:t_nodes
-    % Calculate the Temperature on the next node:
+for t = 2:t_nodes   
     
     for j = 2:x_nodes-1
         
         for  i = 2:y_nodes-1
-            % Central Diferences:
+            % Calculate the Central Diference on the X-axis:
             d2Tdx2 = ( T(i+1,j,t-1) - 2*T(i,j,t-1) + T(i-1,j,t-1) )/ dx^2;
+            % Calculate the Central Diference on the Y-axis:
             d2Tdy2 = ( T(i,j+1,t-1) - 2*T(i,j,t-1) + T(i,j-1,t-1) )/ dy^2;
+            % Calculate the Temperature on the next node:
             dTdt = alpha*dt*( d2Tdx2 + d2Tdy2 ) + T(i,j,t-1);
             T(i,j,t) = dTdt;
         end
@@ -56,7 +57,7 @@ s = surf(x_array, y_array, T(:,:,t_nodes-1));
 s.EdgeColor = 'none';
 s.FaceColor = 'interp';
 view(2);
-xlabel('Comprimento da barra (m)');
+xlabel('Comprimento da eixo-x (m)');
 ylabel('Comprimento do eixo-y (m)');
 zlabel('Temperatura (ºC)');
 axis ij;
